@@ -25,12 +25,13 @@ public class Task_3 implements Task_3_base {
         // Найти, какое число будет находиться в этой последовательности
         // на позиции num
         int number = 0;
-        for (int i = 1; num < position; i++)
+        int position = 0;
+        for (int i = 1; num > position; i++)
         {
             position +=i;
             number = i;
         }
-        System.out.println("На позиции"+ num "стоит число "+ nember);
+        System.out.println("На позиции"+ num +"стоит число "+ number);
         return 0;
     }
 
@@ -42,10 +43,10 @@ public class Task_3 implements Task_3_base {
         // Найти сумму первых cnt элементов последовательности
         int sum = 0;
         int function = num;
-        for (int i = 0; snt > i; i++ ){
+        for (int i = 0; sum > i; i++ ){
             sum += function;
             num = function;
-            function = num*b+1;
+            function = num*d+1;
         }
         System.out.println("Сумма элементов = " + sum);
 
@@ -58,13 +59,14 @@ public class Task_3 implements Task_3_base {
         // S(n) = 1 + 1 * 2 + 1 * 2 * 3 + ... + n!
         // для заданного n
         // (n! - это n-факториал. Кто не знает - гуглите)
+        int sum =0;
         for (int i = 1; i <= n; i++){
             int mult = 1;
-         for(int j = 1; j <= i; j++)
-            mult *=j;
-         sum +=mult;
+            for(int j = 1; j <= i; j++)
+                mult *=j;
+            sum +=mult;
         }
-        System.out.println("Факториал числа "+ n " = " + sum);
+        System.out.println("Факториал числа "+ n + " = " + sum);
         return 0;
     }
 }
