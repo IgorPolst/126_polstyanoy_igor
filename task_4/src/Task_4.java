@@ -3,6 +3,12 @@ public class Task_4 implements Task_4_base {
     public int[] subtask_1_arrays(int size, int a0, int d) {
         // сгенерировать и вернуть массив размера size, содержащий элементы
         // арифметической прогрессии с первым членом a0 и разностью d
+        int array = new int [size];
+        array[0] = a0;
+        for (int i = 1; i< size; i++){
+            array[i] = array[i-1]+b;
+        }
+
         return null;
     }
 
