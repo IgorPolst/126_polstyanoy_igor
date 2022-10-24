@@ -11,10 +11,10 @@ public class Task_1 implements Task_1_base {
             else
                 return third;
         else
-            if (second < third)
-                return second;
-            else
-                return third;
+        if (second < third)
+            return second;
+        else
+            return third;
 
     }
     @Override
@@ -74,24 +74,17 @@ public class Task_1 implements Task_1_base {
         // вернуть строку "Ошибка"
         // ------------------------------------------------------------------------------------
         // Замените данный оператор кодом, решающим поставленную задачу.
-        switch (day_od_week) {
-            case (1):
-                return "Понедельник";
-            case (2):
-                return "Вторник";
-            case (3):
-                return "Среда";
-            case (4):
-                return "Четверг";
-            case (5):
-                return "Пятница";
-            case (6):
-                return "Суббота";
-            case (7):
-                return "Воскресенье";
-            default:
-                return "Ошибка";
-        }
+        String week = switch (day_od_week) {
+            case 1 -> "Понедельник";
+            case 2 -> "Вторник";
+            case 3 -> "Среда";
+            case 4 -> "Четверг";
+            case 5 -> "Пятница";
+            case 6 -> "Суббота";
+            case 7 -> "Воскресенье";
+            default -> "Ошибка";
+        };
+        return week;
     }
     @Override
     public String subtask_6_switch(int direction) {
@@ -103,18 +96,14 @@ public class Task_1 implements Task_1_base {
         // Во всех остальных случаях вернуть пустую строку
         // ------------------------------------------------------------------------------------
         // Замените данный оператор кодом, решающим поставленную задачу.
-        switch (direction){
-            case(1):
-                return ("север");
-            case(2):
-                return ("юг");
-            case(3):
-                return ("запад");
-            case(4):
-                return ("восток");
-            default:
-                return ("");
-        }
+        String compas = switch (direction){
+            case 1 -> "север";
+            case 2 -> "юг";
+            case 3 -> "запад";
+            case 4 -> "восток";
+            default -> "";
+        };
+        return compas;
     }
     @Override
     public int subtask_7_if(double vx, double vy, double vz, double speed, double time, double wall) {
@@ -126,7 +115,14 @@ public class Task_1 implements Task_1_base {
         // 2 - аргументы функции заданы некорректно
         // Допустимой погрешностью при сравнении переменных типа double считать 0.000001
         // ------------------------------------------------------------------------------------
-        return 0;
+        double main = Math.sqrt(wall*wall*Math.abs(vx) + wall*wall*Math.abs(vy) + wall*wall*Math.abs(vz));
+        if (speed > 0 && time > 0)
+            if ((vx != 0 && time >= main/speed  ) || Math.abs(main/speed - time) <= 0.000001)
+                return 1;
+            else
+                return 0;
+        else
+            return 2;
     }
     @Override
     public int subtask_8_if(double k1, double b1, double k2, double b2) {
